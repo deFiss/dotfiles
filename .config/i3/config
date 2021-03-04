@@ -57,7 +57,7 @@ exec --no-startup-id conky -c ~/.config/conky/conky.conf
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 bindsym $mod+q kill
-bindsym $mod+d exec --no-startup-id rofi -theme android_notification -show-icons -show drun -width 50 -lines 30 -scroll-method 1
+bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun
 bindsym $mod+F10 exec shutdown -h now
 
 bindsym $mod+F5 exec polybar main
@@ -165,10 +165,10 @@ smart_gaps on
 # Colors and borders
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
-client.focused          #545454 #545454 #ffffff #545454   #545454c
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
-client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.focused          #373737 #373737 #a048fe #545454 #545454c
+client.focused_inactive #333333 #5f676a #ED4E59 #484e50 #5f676a
+client.unfocused        #333333 #222222 #ED4E59 #292d2e #222222
+client.urgent           #2f343a #6A53E6 #FFFFFF #6A53E6 #6A53E6
 client.background       #ffffff
 
 new_window 1pixel
