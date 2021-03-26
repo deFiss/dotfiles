@@ -60,7 +60,7 @@ bindsym $mod+q kill
 bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun
 bindsym $mod+F10 exec shutdown -h now
 
-bindsym $mod+F5 exec polybar main
+bindsym $mod+F5 exec polybar main --config=~/.config/polybar/config.conf
 bindsym $mod+F6 exec killall polybar
 bindsym $mod+Return exec --no-startup-id kitty
 bindsym $mod+Shift+G exec spotify
@@ -189,3 +189,4 @@ for_window [title="Spotify Premium"] move to workspace $ws8
 for_window [class="Lxappearance"] floating enable
 for_window [class="mpv"] floating enable
 for_window [class="Nitrogen"] floating enable
+for_window [class="qimgv"] floating enable
