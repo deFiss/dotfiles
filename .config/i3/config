@@ -158,7 +158,7 @@ mode "resize" {
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 for_window [class="polybar"] gaps outer current set 10
-gaps inner 10
+gaps inner 20
 smart_gaps on
 
 #=-=-=-=-=-=-=-=-=-=-=-=-=-=
