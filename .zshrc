@@ -46,7 +46,7 @@ DISABLE_UPDATE_PROMPT="true"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
-plugins=(git archlinux django pyenv sudo systemd themes)
+plugins=(git archlinux django pyenv sudo systemd themes docker-compose)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -69,3 +69,4 @@ fi
 
 alias l='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias v='. venv/bin/activate'
+alias mem='sudo smem --pie name -c "pss"'
