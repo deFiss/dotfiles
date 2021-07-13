@@ -49,7 +49,7 @@ exec --no-startup-id picom --config ~/.config/picom.conf
 exec --no-startup-id flameshot
 exec --no-startup-id dropbox
 exec --no-startup-id sudo iptables -t mangle -A POSTROUTING -j TTL --ttl-set 65
-exec --no-startup-id conky -c ~/.config/conky/conky.conf
+#exec --no-startup-id conky -c ~/.config/conky/conky.conf
 
 
 #=-=-=-=-=-=-=-=-=-=-=-=-=-
