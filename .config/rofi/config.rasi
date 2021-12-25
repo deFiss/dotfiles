@@ -1,0 +1,6 @@
+configuration {
+    show-icons: true;
+    scroll-method: 1;
+    font: "JetBrainsMono Nerd Font 12";
+}
+@theme "Pop-Dark"

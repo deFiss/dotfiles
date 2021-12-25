@@ -1,0 +1,188 @@
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Main keys
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+set $mod Mod4
+floating_modifier $mod
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# FONTS
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+font pango:DejaVu Sans Mono 8
+
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# I3Lock and keyboard layout
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+exec setxkbmap -layout "us, ru" -option "grp:alt_shift_toggle"
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id nm-applet
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Volume level and media keys
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioPause exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Autorun
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+exec --no-startup-id polybar main --config=~/.config/polybar/config.conf
+exec --no-startup-id copyq
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id picom --config ~/.config/picom.conf
+exec --no-startup-id flameshot
+exec --no-startup-id nextcloud
+#exec --no-startup-id conky -c ~/.config/conky/conky.conf
+
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-
+# Apps keybinds
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+bindsym $mod+q kill
+bindsym $mod+d exec --no-startup-id rofi -modi drun -show drun
+bindsym $mod+F10 exec shutdown -h now
+
+bindsym $mod+F5 exec polybar main --config=~/.config/polybar/config.conf
+bindsym $mod+F6 exec killall polybar
+bindsym $mod+Return exec --no-startup-id kitty
+bindsym $mod+Shift+G exec spotify
+bindsym $mod+Shift+F exec firefox
+bindsym Print exec flameshot gui
+
+
+bindsym $mod+Shift+F1 exec telegram-desktop -many -workdir ~/tg/defis
+bindsym $mod+Shift+F2 exec telegram-desktop -many -workdir ~/tg/vladimir
+bindsym $mod+Shift+F3 exec telegram-desktop -many -workdir ~/tg/foxys
+
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Nav and tiling keybinds
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+bindsym $mod+Shift+1 move container to workspace number $ws1
+bindsym $mod+Shift+2 move container to workspace number $ws2
+bindsym $mod+Shift+3 move container to workspace number $ws3
+bindsym $mod+Shift+4 move container to workspace number $ws4
+bindsym $mod+Shift+5 move container to workspace number $ws5
+bindsym $mod+Shift+6 move container to workspace number $ws6
+bindsym $mod+Shift+7 move container to workspace number $ws7
+bindsym $mod+Shift+8 move container to workspace number $ws8
+bindsym $mod+Shift+9 move container to workspace number $ws9
+bindsym $mod+Shift+0 move container to workspace number $ws10
+
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Resize window
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Gaps
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+for_window [class="polybar"] gaps outer current set 10
+gaps inner 20
+smart_gaps on
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Colors and borders
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+client.focused          #333333 #373737 #ffffff #484e50 #484e50
+client.focused_inactive #333333 #5f676a #5f676a #484e50 #5f676a
+client.unfocused        #333333 #222222 #5f676a #292d2e #222222
+client.urgent           #2f343a #5f676a #FFFFFF #5f676a #5f676a
+client.background       #ffffff
+
+new_window 1pixel
+for_window [class="^.*"] border pixel 0
+
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+# Windows workspace and mode
+#=-=-=-=-=-=-=-=-=-=-=-=-=-=
+
+for_window [class="firefox"] move to workspace $ws1
+for_window [title="Visual Studio Code"] move to workspace $ws2
+for_window [title="CopyQ"] floating enable
+for_window [class="TelegramDesktop"] move to workspace $ws7
+for_window [class="telefuel-desktop"] move to workspace $ws7
+for_window [title="Spotify Premium"] move to workspace $ws8
+
+for_window [class="Lxappearance"] floating enable
+for_window [class="mpv"] floating enable
+for_window [class="Nitrogen"] floating enable
+for_window [class="qimgv"] floating enable
