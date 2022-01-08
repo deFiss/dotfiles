@@ -1,0 +1,103 @@
+add_newline = false
+
+[character]
+success_symbol = "[➜](bold green) "
+error_symbol = "[✗](bold red) "
+
+[cmd_duration]
+min_time = 500
+format = "underwent [$duration](bold yellow)"
+
+[directory]
+truncation_length = 30
+truncate_to_repo = false
+truncation_symbol = ""
+style = "bold cyan"
+disabled = false
+format = " [$path]($style)[$read_only]($read_only_style) "
+read_only = " 🔒"
+read_only_style = "red"
+
+# [env_var]
+# variable = "SHELL"
+# default = "Zsh"
+# prefix = "<"
+# suffix = ">"
+
+[git_branch]
+symbol = "🌱 "
+truncation_length = 16
+truncation_symbol = "..."
+style = "bold purple"
+disabled = false
+
+[git_state]
+cherry_pick = "CHERRY PICKING"
+rebase = "REBASING"
+merge = "MERGING"
+revert = "REVERTING"
+bisect = "BISECTING"
+am = "AM"
+am_or_rebase = "AM/REBASE"
+style = "bold yellow"
+disabled = false
+
+[git_status]
+conflicted = "🏳"
+ahead = "🏎💨"
+behind = "😰"
+diverged = "😵"
+untracked = "🤷‍"
+stashed = "📦"
+modified = "📝"
+staged = "++"
+renamed = "👅"
+deleted = "🗑"
+
+[line_break]
+disabled = true
+
+# [memory_usage]
+# disabled = false
+# show_percentage = true
+# show_swap = false
+# threshold = -1
+# symbol = " "
+# separator = "/"
+# style = "bold dimmed white"
+
+[nodejs]
+symbol = "⬢ "
+style = "bold green"
+disabled = true
+
+# [package]
+# symbol = "📦 "
+# style = "bold red"
+# disabled = false
+
+[python]
+symbol = "🐍 "
+pyenv_version_name = false
+pyenv_prefix = "pyenv"
+style = "bold yellow"
+disabled = true
+
+[golang]
+format = "via [🐹 $version](bold cyan) "
+disabled = true
+
+[package]
+format = "via [🎁 $version](208 bold) "
+
+[sudo]
+style = "bold green"
+symbol = "🧙 "
+disabled = true
+
+[username]
+style_root = "bold red"
+style_user = "bold yellow"
+show_always = false
+disabled = true
+

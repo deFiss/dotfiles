@@ -1,6 +1,6 @@
 export ZSH="/home/defoxys/.oh-my-zsh"
 
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
 
 plugins=(git archlinux pyenv sudo systemd themes docker-compose)
 
@@ -15,3 +15,6 @@ fi
 
 alias l='ranger --choosedir=$HOME/.rangerdir; LASTDIR=`cat $HOME/.rangerdir`; cd "$LASTDIR"'
 alias v='. venv/bin/activate'
+
+
+eval "$(starship init zsh)"
